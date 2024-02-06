@@ -1,0 +1,28 @@
+Bài 1: Tối ưu code download multi thread.
+    (Có mã nguồn kèm theo)
+
+    Hiện tại chạy downloader.py, nhận 2 tham số url và number_of_threads (số thread cho phép tải đồng thời)
+
+    + Ưu điểm:
+        - Ứng dụng download multi threads và khá nhanh (hơn so với PySmartDL)
+        - Mã khá ngắn gọn và dễ hiểu, khả năng tùy biến và nâng cấp tốt hơn PySmartDL
+        - Tiết kiệm RAM (không đẩy buffer lên RAM nhiều)
+        - ... (tự đánh giá thêm)
+        
+    + Nhược điểm:
+        - Chương trình sinh ra thư mục temp và các temp/part... ứng với từng threads, download xong mọi parts thì join lại thành 1 file trong cùng thư mục chạy ứng dụng.
+        - Thư mục temp không được xóa hoặc thời điểm xóa chưa hợp lý.
+        - Tự bắt tên cho output như browser, chưa có thêm tham số output để trả ra đường dẫn kết quả.
+        - ... (tự đánh giá thêm)
+
+    + Yêu cầu:
+        - Tối ưu lại mã nguồn.
+        - Cải tiết mã để cải tiến các nhược điểm và giữ được ưu điểm.
+        - Tối ưu đoạn mã download từng part, xử lý xong part nào xóa luôn part đó, cuối cùng đẩy part cuối ra output.
+        - Tốt hơn nữa là tạo ra 1 file rỗng với dung lượng biết trước rồi cùng lúc xử lý ghi đồng thời với .seek để tới các vị trí bắt đầu ghi của từng thread.
+
+
+Bài 2: Sử dụng Nginx để cached ảnh tự động
+    + Nghiên cứu và dựng hệ thống Nginx 
+    + Tham khảo:    https://nginx.org/en/docs/http/ngx_http_image_filter_module.html
+                    https://viblo.asia/p/cau-hinh-nginx-de-resizecrop-image-voi-module-ngx-http-image-filter-module-gGJ59NAPKX2
